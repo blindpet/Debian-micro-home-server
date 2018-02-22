@@ -27,11 +27,11 @@ fi
 function updatecheck ()
 { 
 apt-get clean	
-if dpkg-query -W curl net-tools alsa-base alsa-utils debconf-utils git whiptail build-essential stunnel4 html2text apt-transport-https; then
+if dpkg-query -W curl net-tools debconf-utils git whiptail build-essential stunnel4 html2text apt-transport-https; then
 return
 else
 debconf-apt-progress -- apt-get update
-apt-get -y install sudo net-tools curl debconf-utils dnsutils unzip whiptail git build-essential alsa-base alsa-utils stunnel4 html2text apt-transport-https --force-yes
+apt-get -y install sudo net-tools curl debconf-utils dnsutils unzip whiptail git build-essential stunnel4 html2text apt-transport-https --force-yes
 #debconf-apt-progress -- apt-get upgrade -y
 fi
 }
